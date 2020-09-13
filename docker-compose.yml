@@ -12,31 +12,20 @@ services:
     networks:
       - apollo-network
     privileged: true
-    #env_file: ./.env
     volumes:
       - type: bind
-        source: "/C/Users/orteg/Documents/Ortega/genome/apollo/postgresql/data/directory"
+        source: "/C/apollo/postgresql/data/directory"
         target: /var/lib/postgresql
-      - type: bind
-        source: "/C/Users/orteg/Documents/Ortega/genome/apollo/jbrowse/root/apollo_data"
+      - type: bind><
+        source: "/C/apollo/jbrowse/root/apollo_data"
         target: /data
       - type: bind
-        source : "/C/Users/orteg/Documents/Ortega/genome/apollo/jbrowse/root/directory"
+        source : "/C/apollo/jbrowse/root/directory"
         target: /data/temporary/apollo_data
       - type: bind
-        source : "/C/Users/orteg/Documents/Ortega/genome/apollo/organism"
+        source : "/C/apollo/organism"
         target: /opt/organism
-    #volumes:
-    #  - postgresql2:/var/lib/postgresql
-    #  - apollo_directory:/data
-    #  - apollo_data:/data/temporary/apollo_data
+    
 networks:
   apollo-network:
     driver: bridge
-#volumes:
-#  apollo_data:
-#    driver: local
-#  postgresql2:
-#    driver: local
-#  apollo_directory:
-#    driver: local
