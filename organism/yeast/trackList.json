@@ -1,0 +1,75 @@
+{
+   "names" : {
+      "url" : "names/",
+      "type" : "Hash"
+   },
+   "tracks" : [
+      {
+         "category" : "Reference sequence",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "label" : "DNA",
+         "key" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "chunkSize" : 20000,
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-"
+      },
+      {
+         "key" : "Protein-coding genes",
+         "type" : "FeatureTrack",
+         "feature" : [
+            "gene"
+         ],
+         "category" : "Genes",
+         "subfeatures" : true,
+         "urlTemplate" : "tracks/Genes/{refseq}/trackData.json",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "label" : "Genes",
+         "track" : "Genes",
+         "compress" : 0,
+         "style" : {
+            "subfeatureClasses" : {
+               "CDS" : "transcript-CDS"
+            },
+            "arrowheadClass" : "transcript-arrowhead",
+            "className" : "feature5"
+         },
+         "autocomplete" : "all"
+      },
+      {
+         "label" : "transcript_with_no_features",
+         "urlTemplate" : "tracks/transcript_with_no_features/{refseq}/trackData.json",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "autocomplete" : "all",
+         "compress" : 0,
+         "style" : {
+            "subfeatureClasses" : {
+               "UTR" : "transcript-UTR",
+               "CDS" : "transcript-CDS"
+            },
+            "className" : "transcript",
+            "arrowheadClass" : "transcript-arrowhead"
+         },
+         "track" : "transcript_with_no_features",
+         "description" : 1,
+         "category" : "Genes",
+         "feature" : [
+            "mRNA"
+         ],
+         "key" : "Exonerate predictions (misconfigured for test, and with a long description)",
+         "type" : "FeatureTrack",
+         "subfeatures" : true
+      }
+   ],
+   "alwaysOnTracks" : "DNA,Annotations",
+   "css" : "data/custom.css",
+   "plugins" : [
+      {
+         "name" : "WebApollo",
+         "location" : "./plugins/WebApollo"
+      }
+   ],
+   "share_link" : 0,
+   "formatVersion" : 1,
+   "favicon" : "./plugins/WebApollo/img/webapollo_favicon.ico",
+   "dataset_id" : "yeast"
+}

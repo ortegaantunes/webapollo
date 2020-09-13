@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  apollo:
+    image: apollo
+    container_name: apollo
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    tty: true
+    ports:
+      - 8080:8080
+    networks:
+      - apollo-network
+    privileged: true
+    #env_file: ./.env
+    volumes:
+      - type: bind
+        source: "/C/Users/orteg/Documents/Ortega/genome/apollo/postgresql/data/directory"
+        target: /var/lib/postgresql
+      - type: bind
+        source: "/C/Users/orteg/Documents/Ortega/genome/apollo/jbrowse/root/apollo_data"
+        target: /data
+      - type: bind
+        source : "/C/Users/orteg/Documents/Ortega/genome/apollo/jbrowse/root/directory"
+        target: /data/temporary/apollo_data
+      - type: bind
+        source : "/C/Users/orteg/Documents/Ortega/genome/apollo/organism"
+        target: /opt/organism
+    #volumes:
+    #  - postgresql2:/var/lib/postgresql
+    #  - apollo_directory:/data
+    #  - apollo_data:/data/temporary/apollo_data
+networks:
+  apollo-network:
+    driver: bridge
+#volumes:
+#  apollo_data:
+#    driver: local
+#  postgresql2:
+#    driver: local
+#  apollo_directory:
+#    driver: local
