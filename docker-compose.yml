@@ -13,19 +13,10 @@ services:
       - apollo-network
     privileged: true
     volumes:
-      - type: bind
-        source: "/Users/luismigueldepablos/Desktop/webapollo-macos/directory"
-        target: /var/lib/postgresql
-      - type: bind
-        source: "/Users/luismigueldepablos/Desktop/webapollo-macos/apollo_data"
-        target: /data
-      - type: bind
-        source : "/Users/luismigueldepablos/Desktop/webapollo-macos/directory"
-        target: /data/temporary/apollo_data
-      - type: bind
-        source : "/Users/apollo/organism"
-        target: /opt/organism
-    
+      - /opt/webapollo:/directory
+      - /opt/webapollo:/apollo_data
+      - /opt/webapollo:/directory
+      - /opt/webapollo:/opt/organism    
 networks:
   apollo-network:
     driver: bridge
