@@ -14,13 +14,13 @@ services:
     privileged: true
     volumes:
       - type: bind
-        source: "/Users/apollo/postgresql/data/directory"
+        source: "/Users/luismigueldepablos/Desktop/webapollo-macos/directory"
         target: /var/lib/postgresql
       - type: bind
-        source: "/Users/apollo/jbrowse/root/apollo_data"
+        source: "/Users/luismigueldepablos/Desktop/webapollo-macos/apollo_data"
         target: /data
       - type: bind
-        source : "/Users/apollo/jbrowse/root/directory"
+        source : "/Users/luismigueldepablos/Desktop/webapollo-macos/directory"
         target: /data/temporary/apollo_data
       - type: bind
         source : "/Users/apollo/organism"
