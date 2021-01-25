@@ -12,7 +12,11 @@ This code has been using docker environment based in a image from Project owner.
 
 
 ```bash
-OS Based in Ubuntu distribution
+Open the Terminal on your Operating System and execute the below command:
+
+Ps: You need be on directory where the project was downloaded. Eg: /Users/Desktop/apollo
+
+docker-compose -f docker-compose.yml -p apollo up -d --build
 ```
 
 ## Directory
